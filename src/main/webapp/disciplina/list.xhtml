@@ -17,19 +17,35 @@
     <ui:define name="message">Listagem de disciplinas</ui:define>
 
     <ui:define name="main">
-        <c:forEach var="disciplina" items="#{disciplinaBean.disciplinas}">
-            <h:panelGrid columnClasses="label,component,required" columns="3">
-                <h:outputLabel for="disciplinaBeanNome" value="Nome:"/>
-                <h:outputText id="disciplinaBeanNome" value="#{disciplina.nome}"/>
-                <h:outputText/>
-                <h:outputLabel for="disciplinaBeanPeriodo" value="Periodo:"/>
-                <h:inputTextarea id="disciplinaBeanPeriodo" value="#{disciplina.periodo}"/>
-                <h:outputText/>
-            </h:panelGrid>
-        </c:forEach>
-
-        <div class="buttons">
-            <h:link value="Criar Novo" outcome="create" styleClass="btn btn-primary"/>
+        <div class="container-fluid">
+            <div class="buttons">
+                <h:link value="Criar Novo" outcome="create" styleClass="btn btn-primary"/>
+            </div>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Lista de disciplinas</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Periodo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="disciplina" items="#{disciplinaBean.disciplinas}">
+                                <tr>
+                                    <h:dataTable value="#{disciplina.nome}"/>
+                                    <h:dataTable value="#{disciplina.periodo}"/>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </ui:define>
 </ui:composition>
