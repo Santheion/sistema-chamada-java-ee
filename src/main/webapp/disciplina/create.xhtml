@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{disciplinaBean.retrieve}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Cadastro de disciplinas</ui:define>
+
+    <ui:define name="main">
+        <h:form id="create" styleClass="create-form">
+            <h:messages globalOnly="true" styleClass="error"/>
+
+            <h:panelGrid columnClasses="label,component,required" columns="3">
+                <h:outputLabel for="disciplinaBeanNome" value="Nome:"/>
+                <h:panelGroup>
+                    <h:inputText id="disciplinaBeanNome" required="true" value="#{disciplinaBean.disciplina.nome}"/>
+                    <h:message for="disciplinaBeanNome" styleClass="error"/>
+                </h:panelGroup>
+                <h:outputText value="*"/>
+                <h:outputLabel for="disciplinaBeanPeriodo" value="Periodo:"/>
+                <h:panelGroup>
+                    <h:inputText id="disciplinaBeanPeriodo" required="true" value="#{disciplinaBean.disciplina.periodo}"/>
+                    <h:message for="disciplinaBeanPeriodo" styleClass="error"/>
+                </h:panelGroup>
+                <h:outputText value="*"/>
+            </h:panelGrid>
+
+            <div class="buttons">
+                <h:commandLink value="Salvar" action='#{disciplinaBean.create}' styleClass="btn btn-primary"/>
+                <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
