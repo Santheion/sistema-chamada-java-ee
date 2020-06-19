@@ -35,10 +35,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="disciplina" items="#{disciplinaBean.disciplinas}">
+                            <c:forEach  items="#{disciplinaBean.disciplinas}" var="_disciplina">
                                 <tr>
-                                    <h:dataTable value="#{disciplina.nome}"/>
-                                    <h:dataTable value="#{disciplina.periodo}"/>
+                                    <h:dataTable value="#{_disciplina.nome}"/>
+                                    <h:dataTable value="#{_disciplina.periodo}"/>
                                 </tr>
                             </c:forEach>
                             </tbody>

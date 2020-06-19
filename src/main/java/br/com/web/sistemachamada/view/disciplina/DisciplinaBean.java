@@ -1,6 +1,7 @@
 package br.com.web.sistemachamada.view.disciplina;
 
 import br.com.web.sistemachamada.models.Disciplina;
+import com.google.gson.Gson;
 
 import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
@@ -28,7 +29,11 @@ public class DisciplinaBean implements Serializable {
     private EntityManager em;
 
     private List<Disciplina> disciplinas;
-    private Disciplina disciplina;
+    private Disciplina disciplina = new Disciplina();
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
 
     public void getAll() {
         CriteriaQuery<Disciplina> criteria = this.em.getCriteriaBuilder()
@@ -36,16 +41,22 @@ public class DisciplinaBean implements Serializable {
 
         this.disciplinas = this.em.createQuery(
                 criteria.select(criteria.from(Disciplina.class))).getResultList();
+
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(this.disciplinas));
     }
 
     public void retrieve(){
-        System.out.println("retrieve");
-        this.disciplina = new Disciplina();
+        if (!conversation.isTransient()){
+            conversation.end();
+        }
+        this.conversation.begin();
+        this.conversation.setTimeout(1800000L);
     }
 
     public String create(){
-        this.conversation.begin();
-        this.conversation.setTimeout(1800000L);
+        em.persist(disciplina);
+        this.conversation.end();
         return "disciplina/list?faces-redirect=true";
     }
 
@@ -53,7 +64,7 @@ public class DisciplinaBean implements Serializable {
         return disciplinas;
     }
 
-    public Object getDisciplina() {
+    public Disciplina getDisciplina() {
         return disciplina;
     }
 }
