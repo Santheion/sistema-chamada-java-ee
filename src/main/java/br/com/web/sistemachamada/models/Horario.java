@@ -16,6 +16,7 @@ import java.util.Date;
 public class Horario implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
+    @Column(name = "idHorario", updatable = false, nullable = false)
     public Integer id;
 
     @NotNull

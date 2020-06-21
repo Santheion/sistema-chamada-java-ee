@@ -16,6 +16,7 @@ public class Disciplina implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idDisciplina", updatable = false, nullable = false)
     public Integer id;
 
     @NotNull
