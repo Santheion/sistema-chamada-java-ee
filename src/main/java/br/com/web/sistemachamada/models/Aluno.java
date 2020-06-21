@@ -1,9 +1,6 @@
 package br.com.web.sistemachamada.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,12 +11,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Aluno extends Usuario {
     @NotNull
+    @Column(name = "matricula", updatable = false, nullable = false)
     public String matricula;
+    private  String email;
+    private String senha;
+    private Integer cpf;
+    private String sexo;
+
 
     public Aluno(String nome, String email, String senha, Integer cpf, String sexo, String matricula) {
         super(nome, email, senha, cpf, sexo);
         this.matricula = matricula;
     }
+
+    public Aluno() {
+        super();
+    }
+
 
     public String getMatricula() {
         return matricula;
@@ -27,5 +35,45 @@ public class Aluno extends Usuario {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String getSenha() {
+        return senha;
+    }
+
+    @Override
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public Integer getCpf() {
+        return cpf;
+    }
+
+    @Override
+    public void setCpf(Integer cpf) {
+        this.cpf = cpf;
+    }
+
+    @Override
+    public String getSexo() {
+        return sexo;
+    }
+
+    @Override
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

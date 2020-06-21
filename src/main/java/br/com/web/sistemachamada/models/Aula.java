@@ -16,6 +16,7 @@ import java.util.Date;
 public class Aula implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     public Integer id;
 
     @NotNull

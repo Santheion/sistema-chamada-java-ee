@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{alunoBean.getAll}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Grade de Aulas</ui:define>
+
+    <ui:define name="main">
+        <div class="container-fluid">
+            <div class="buttons">
+                <h:link value="Criar Novo" outcome="create" styleClass="btn btn-primary"/>
+            </div>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Grade de Aulas</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Senha</th>
+                                <th>Cpf</th>
+                                <th>Sexo</th>
+                                <th>Matricula</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach  items="#{alunoBean.alunos}" var="aluno">
+                                <tr>
+                                    <h:dataTable value="#{aluno.nome}"/>
+                                    <h:dataTable value="#{aluno.email}"/>
+                                    <h:dataTable value="#{aluno.senha}"/>
+                                    <h:dataTable value="#{aluno.cpf}"/>
+                                    <h:dataTable value="#{aluno.sexo}"/>
+                                    <h:dataTable value="#{aluno.matricula}"/>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

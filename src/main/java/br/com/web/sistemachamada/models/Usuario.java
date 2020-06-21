@@ -42,6 +42,10 @@ public class Usuario implements Serializable{
         this.sexo = sexo;
     }
 
+    public Usuario() {
+
+    }
+
     public String getNome() {
         return nome;
     }

@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{alunoBean.retrieve}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Cadastro de aluno</ui:define>
+
+    <ui:define name="main">
+        <h:form id="create" styleClass="create-form">
+            <h:messages globalOnly="true" styleClass="error"/>
+
+            <h:panelGrid columnClasses="label,component,required" columns="3">
+                <h:outputLabel for="AlunoBean" value="Nome:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBean" required="true"  value="#{alunoBean.aluno.nome}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBean" value="email:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBean2" required="true"  value="#{alunoBean.aluno.email}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+                <h:outputLabel for="AlunoBean" value="senha:"/>
+                <h:panelGroup>
+                <h:inputText id="AlunoBean3" required="true"  value="#{alunoBean.aluno.senha}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBean" value="cpf:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBean4" required="true"  value="#{alunoBean.aluno.cpf}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBean" value="sexo:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBean5" required="true"  value="#{alunoBean.aluno.sexo}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBean" value="matricula:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBean6" required="true"  value="#{alunoBean.aluno.matricula}"/>
+                    <h:message for="AlunoBean" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+            </h:panelGrid>
+
+            <div class="buttons">
+                <h:commandLink value="Salvar" action='#{alunoBean.create}' styleClass="btn btn-primary"/>
+                <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
