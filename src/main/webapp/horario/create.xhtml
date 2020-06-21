@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{horarioBean.retrieve}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Cadastro de horários</ui:define>
+
+    <ui:define name="main">
+        <h:form id="create" styleClass="create-form">
+            <h:messages globalOnly="true" styleClass="error"/>
+
+            <h:panelGrid columnClasses="label,component,required" columns="3">
+                <h:outputLabel for="horarioBeanDia" value="Dia:"/>
+                <h:panelGroup>
+                    <h:inputText id="horarioBeanDia" required="true" value="#{horarioBean.horario.diaSemana}"/>
+                    <h:message for="horarioBeanDia" styleClass="error"/>
+                </h:panelGroup>
+                <h:outputText value="*"/>
+                <h:outputLabel for="horarioBeanHoraInicial" value="Horário de Ínicio:"/>
+                <h:panelGroup>
+                    <h:inputText id="horarioBeanHoraInicial" required="true" value="#{horarioBean.horario.horaIncicial}"/>
+                    <h:message for="horarioBeanHoraInicial" styleClass="error"/>
+                </h:panelGroup>
+                <h:outputText value="*"/>
+                <h:outputLabel for="horarioBeanHoraFinal" value="Horário Final:"/>
+                <h:panelGroup>
+                    <h:inputText id="horarioBeanHoraFinal" required="true" value="#{horarioBean.horario.horaFinal}"/>
+                    <h:message for="horarioBeanHoraFinal" styleClass="error"/>
+                </h:panelGroup>
+                <h:outputText value="*"/>
+            </h:panelGrid>
+
+            <div class="buttons">
+                <h:commandLink value="Salvar" action='#{aulaBean.create}' styleClass="btn btn-primary"/>
+                <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
