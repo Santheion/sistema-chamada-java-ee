@@ -13,6 +13,10 @@ import java.io.Serializable;
 @Table(name = "recurso")
 
 public class Recurso implements Serializable {
+    @Id
+    @GeneratedValue(strategy =  GenerationType.AUTO)
+    public Integer IdRecurso;
+
     @NotNull
     public String justificativa;
 
@@ -21,8 +25,17 @@ public class Recurso implements Serializable {
 
     public Recurso(){}
 
-    public Recurso(String justificativa, File anexo) {
+    public Recurso(Integer idRecurso, String justificativa, File anexo) {
+        IdRecurso = idRecurso;
         this.justificativa = justificativa;
+        this.anexo = anexo;
+    }
+
+    public File getAnexo() {
+        return anexo;
+    }
+
+    public void setAnexo(File anexo) {
         this.anexo = anexo;
     }
 
@@ -32,13 +45,5 @@ public class Recurso implements Serializable {
 
     public void setJustificativa(String justificativa) {
         this.justificativa = justificativa;
-    }
-
-    public File getAnexo() {
-        return anexo;
-    }
-
-    public void setAnexo(File anexo) {
-        this.anexo = anexo;
     }
 }

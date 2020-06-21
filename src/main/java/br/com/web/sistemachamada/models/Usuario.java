@@ -13,6 +13,9 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 @Table(name = "user")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(sequenceName="SEQ_INHERITANCE_TABLE_PER_CLASS",
+        name="seqTPC", initialValue=0, allocationSize=1)
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
