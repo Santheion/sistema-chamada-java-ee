@@ -9,7 +9,7 @@
                 template="/resources/template.xhtml">
 
     <f:metadata>
-        <f:event type="preRenderView" listener='#{disciplinaBean.getAll}'/>
+        <f:event type="preRenderView" listener='#{disciplinaBean.getAll()}'/>
     </f:metadata>
 
     <ui:define name="title">Sistema de chamada</ui:define>
@@ -27,22 +27,27 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Periodo</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach  items="#{disciplinaBean.disciplinas}" var="_disciplina">
-                                <tr>
-                                    <h:dataTable value="#{_disciplina.nome}"/>
-                                    <h:dataTable value="#{_disciplina.periodo}"/>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+
+                        <h:dataTable
+                                value="#{disciplinaBean.getDisciplinas()}"
+                                var="disciplina"
+                                class="table table-bordered" id="dataTable" width="100%" cellspacing="0"
+                        >
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText value="#{disciplina.nome}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Período" />
+                            </f:facet>
+                            <h:outputText value="#{disciplina.periodo}" />
+                        </h:column>
+                        </h:dataTable>
+
                     </div>
                 </div>
             </div>

@@ -57,7 +57,7 @@ public class DisciplinaBean implements Serializable {
     public String create(){
         em.persist(disciplina);
         this.conversation.end();
-        return "disciplina/list?faces-redirect=true";
+        return "list?faces-redirect=true";
     }
 
     public List<Disciplina> getDisciplinas() {
