@@ -13,11 +13,6 @@ public class Aluno extends Usuario {
     @NotNull
     @Column(name = "matricula", updatable = false, nullable = false)
     public String matricula;
-    private  String email;
-    private String senha;
-    private Integer cpf;
-    private String sexo;
-
 
     public Aluno(String nome, String email, String senha, Integer cpf, String sexo, String matricula) {
         super(nome, email, senha, cpf, sexo);

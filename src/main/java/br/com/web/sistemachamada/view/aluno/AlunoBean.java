@@ -20,6 +20,8 @@ import java.util.List;
 @ConversationScoped
 @Transactional
 public class AlunoBean implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     @Inject
     private Conversation conversation;
     @PersistenceContext(unitName = "sistemaChamadaPU", type = PersistenceContextType.EXTENDED)
@@ -28,7 +30,7 @@ public class AlunoBean implements Serializable{
     private List<Aluno> alunos;
     private Aluno aluno = new Aluno();
 
-    public void setAlunos(List<Aluno> alu) {
+    public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
     }
 
@@ -51,9 +53,10 @@ public class AlunoBean implements Serializable{
         this.conversation.setTimeout(1800000L);
     }
 
-    public void create(){
+    public String create(){
         em.persist(aluno);
         this.conversation.end();
+        return "list?faces-redirect=true";
     }
 
     public List<Aluno> getAlunos() {

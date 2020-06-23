@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContextType;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named
@@ -27,6 +28,7 @@ public class PresencaBean implements Serializable {
     private EntityManager em;
 
     private List<Presenca> presencas;
+    private List<Integer> checkPresenca  = new ArrayList<Integer>();
     private Presenca presenca = new Presenca();
 
     public void setPresencas(List<Presenca> presencas) {
@@ -53,9 +55,10 @@ public class PresencaBean implements Serializable {
         this.conversation.setTimeout(1800000L);
     }
 
-    public void create(){
+    public String create(){
         em.persist(presenca);
         this.conversation.end();
+        return "list?faces-redirect=true";
     }
 
     public List<Presenca> getPresencas() {

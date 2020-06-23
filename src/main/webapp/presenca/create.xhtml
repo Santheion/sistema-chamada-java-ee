@@ -19,7 +19,7 @@
             <h:panelGrid columnClasses="label,component,required" columns="3">
                 <h:outputLabel for="PresencaBean" value="Presente:"/>
                 <h:panelGroup>
-                    <h:inputText id="PresencaBean" required="true" value="#{presencaBean.presenca}"/>
+                    <h:inputText id="PresencaBean" required="true" value="#{presencaBean.presenca.presente}"/>
                     <h:message for="PresencaBean" styleClass="error"/>
                 </h:panelGroup>
                 <h:outputText value="*"/>

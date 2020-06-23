@@ -26,12 +26,12 @@ public class Usuario implements Serializable{
     @NotNull
     public String email;
     @NotNull
-    @Min(6)
+    //@Min(6)
     public String senha;
     @NotNull
     public Integer cpf;
     @NotNull
-    @Max(1)
+    //@Max(1)
     public String sexo;
 
     public Usuario(String nome, String email, String senha, Integer cpf, String sexo) {

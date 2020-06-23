@@ -17,39 +17,39 @@
             <h:messages globalOnly="true" styleClass="error"/>
 
             <h:panelGrid columnClasses="label,component,required" columns="3">
-                <h:outputLabel for="AlunoBean" value="Nome:"/>
+                <h:outputLabel for="AlunoBeanNome" value="Nome:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBean" required="true"  value="#{alunoBean.aluno.nome}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                    <h:inputText id="AlunoBeanNome" required="true"  value="#{alunoBean.aluno.nome}"/>
+                    <h:message for="AlunoBeanNome" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
-                <h:outputLabel for="AlunoBean" value="email:"/>
+                <h:outputLabel for="AlunoBeanEmail" value="Email:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBean2" required="true"  value="#{alunoBean.aluno.email}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                    <h:inputText id="AlunoBeanEmail" required="true"  value="#{alunoBean.aluno.email}"/>
+                    <h:message for="AlunoBeanEmail" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
-                <h:outputLabel for="AlunoBean" value="senha:"/>
+                <h:outputLabel for="AlunoBeanSenha" value="senha:"/>
                 <h:panelGroup>
-                <h:inputText id="AlunoBean3" required="true"  value="#{alunoBean.aluno.senha}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
-                </h:panelGroup><h:outputText value="*"/>
-
-                <h:outputLabel for="AlunoBean" value="cpf:"/>
-                <h:panelGroup>
-                    <h:inputText id="AlunoBean4" required="true"  value="#{alunoBean.aluno.cpf}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                <h:inputText id="AlunoBeanSenha" required="true"  value="#{alunoBean.aluno.senha}"/>
+                    <h:message for="AlunoBeanSenha" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
-                <h:outputLabel for="AlunoBean" value="sexo:"/>
+                <h:outputLabel for="AlunoBeanCpf" value="Cpf:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBean5" required="true"  value="#{alunoBean.aluno.sexo}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                    <h:inputText id="AlunoBeanCpf" required="true"  value="#{alunoBean.aluno.cpf}"/>
+                    <h:message for="AlunoBeanCpf" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
-                <h:outputLabel for="AlunoBean" value="matricula:"/>
+                <h:outputLabel for="AlunoBeanSexo" value="Sexo:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBean6" required="true"  value="#{alunoBean.aluno.matricula}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                    <h:inputText id="AlunoBeanSexo" required="true"  value="#{alunoBean.aluno.sexo}"/>
+                    <h:message for="AlunoBeanSexo" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBeanMatricula" value="Matricula:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBeanMatricula" required="true"  value="#{alunoBean.aluno.matricula}"/>
+                    <h:message for="AlunoBeanMatricula" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
             </h:panelGrid>
