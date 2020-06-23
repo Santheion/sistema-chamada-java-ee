@@ -21,11 +21,11 @@ public class Horario implements Serializable {
 
     @NotNull
     @Column( name = "dia_semana")
-    public Date diaSemana;
+    public String diaSemana;
 
     @NotNull
     @Column(name ="hora_inicial")
-    public long horaIncicial;
+    public long horaInicial;
 
     @NotNull
     @Column(name ="hora_final")
@@ -33,26 +33,26 @@ public class Horario implements Serializable {
 
     public Horario(){}
 
-    public Horario(Date diaSemana, long horaIncicial, long horaFinal){
+    public Horario(String diaSemana, long horaInicial, long horaFinal){
         this.diaSemana = diaSemana;
-        this.horaIncicial = horaIncicial;
+        this.horaInicial = horaInicial;
         this.horaFinal = horaFinal;
     }
 
-    public Date getDiaSemana() {
+    public String getDiaSemana() {
         return diaSemana;
     }
 
-    public void setDiaSemana(Date diaSemana) {
+    public void setDiaSemana(String diaSemana) {
         this.diaSemana = diaSemana;
     }
 
-    public long getHoraIncicial() {
-        return horaIncicial;
+    public long getHoraInicial() {
+        return horaInicial;
     }
 
-    public void setHoraIncicial(long horaIncicial) {
-        this.horaIncicial = horaIncicial;
+    public void setHoraInicial(long horaInicial) {
+        this.horaInicial = horaInicial;
     }
 
     public long getHoraFinal() {

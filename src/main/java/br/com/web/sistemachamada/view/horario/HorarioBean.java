@@ -49,9 +49,10 @@ public class HorarioBean implements Serializable{
         this.conversation.setTimeout(1800000L);
     }
 
-    public void create(){
+    public String create(){
         em.persist(horario);
         this.conversation.end();
+        return "list?faces-redirect=true";
     }
     public List<Horario> getHorarios() {
         return horarios;
