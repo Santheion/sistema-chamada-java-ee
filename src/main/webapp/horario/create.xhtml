@@ -25,7 +25,7 @@
                 <h:outputText value="*"/>
                 <h:outputLabel for="horarioBeanHoraInicial" value="Horário de Ínicio:"/>
                 <h:panelGroup>
-                    <h:inputText id="horarioBeanHoraInicial" required="true" value="#{horarioBean.horario.horaIncicial}"/>
+                    <h:inputText id="horarioBeanHoraInicial" required="true" value="#{horarioBean.horario.horaInicial}"/>
                     <h:message for="horarioBeanHoraInicial" styleClass="error"/>
                 </h:panelGroup>
                 <h:outputText value="*"/>
@@ -38,7 +38,7 @@
             </h:panelGrid>
 
             <div class="buttons">
-                <h:commandLink value="Salvar" action='#{aulaBean.create}' styleClass="btn btn-primary"/>
+                <h:commandLink value="Salvar" action='#{horarioBean.create}' styleClass="btn btn-primary"/>
                 <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
             </div>
         </h:form>

@@ -27,28 +27,31 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>Dia</th>
-                                <th>Hora Inicial</th>
-                                <th>Hora Final</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach  items="#{horarioBean.horarios}" var="horario">
-                                <tr>
-                                    <h:dataTable value="#{horario.diaSemana}"/>
-                                </tr>
-                                <tr>
-                                    <h:dataTable value="#{horario.horaIncicial}"/>
-                                </tr>
-                                <tr>
-                                    <h:dataTable value="#{horario.horaFinal}"/>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                        <h:dataTable
+                                value="#{horarioBean.getHorarios()}"
+                                var="horario"
+                                class="table table-bordered" id="dataTable" width="100%" cellspacing="0"
+                        >
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Dia" />
+                                </f:facet>
+                                <h:outputText value="#{horario.diaSemana}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Horário Inicial" />
+                                </f:facet>
+                                <h:outputText value="#{horario.horaInicial}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Horário Final" />
+                                </f:facet>
+                                <h:outputText value="#{horario.horaFinal}" />
+                            </h:column>
+                        </h:dataTable>
                     </div>
                 </div>
             </div>
