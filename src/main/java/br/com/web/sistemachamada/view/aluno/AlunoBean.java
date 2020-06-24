@@ -84,7 +84,7 @@ public class AlunoBean implements Serializable{
             return "/faces/aluno/list?faces-redirect=true";
         }
         else{
-            return "/faces/login/aluno/login?faces-redirect=true";
+            return "/faces/aluno/login?faces-redirect=true";
         }
     }
 

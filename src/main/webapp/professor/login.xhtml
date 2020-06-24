@@ -13,21 +13,21 @@
             <h:messages globalOnly="true" styleClass="error"/>
 
             <h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="AlunoBean" value="Email:"/>
+				<h:outputLabel for="ProfessorBeanEmail" value="Email:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBean2" required="true"  value="#{alunoBean.aluno.email}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                    <h:inputText id="ProfessorBeanEmail" required="true"  value="#{professorBean.professor.email}"/>
+                    <h:message for="ProfessorBeanEmail" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
-                <h:outputLabel for="AlunoBean" value="Senha:"/>
+                <h:outputLabel for="ProfessorBeanSenha" value="Senha:"/>
                 <h:panelGroup>
-                <h:inputText id="AlunoBean3" required="true"  value="#{alunoBean.aluno.senha}"/>
-                    <h:message for="AlunoBean" styleClass="error"/>
+                <h:inputText id="ProfessorBeanSenha" required="true"  value="#{professorBean.professor.senha}"/>
+                    <h:message for="ProfessorBeanSenha" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
             </h:panelGrid>
 
             <div class="buttons">
-                <h:commandLink value="Login" action='#{alunoBean.create}' styleClass="btn-login btn btn-primary"/>
+                <h:commandLink value="Login" action='#{professorBean.loginProfessor}' styleClass="btn-login btn btn-primary"/>
             </div>
         </h:form>
     </ui:define>

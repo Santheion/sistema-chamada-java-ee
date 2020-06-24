@@ -21,7 +21,7 @@
 
                 <h:outputLabel for="classeBeanDisciplina" value="Disciplina:"/>
                 <h:panelGroup>
-                    <h:selectOneMenu id="classeBeanDisciplina" required="true" value="#{classeBean.classe.disciplina}" converter="disciplinaConverter">
+                    <h:selectOneMenu id="classeBeanDisciplina" required="true" value="#{classeBean.disciplina.id}">
                         <f:selectItem itemLabel="Escolha um .." itemValue="#{null}" />
                         <f:selectItems value="#{classeBean.disciplinas}" var="disciplina" itemLabel="#{disciplina.nome}" itemValue="#{disciplina.id}" />
                     </h:selectOneMenu>
@@ -31,7 +31,7 @@
 
                 <h:outputLabel for="classeBeanProfessores" value="Professor:"/>
                 <h:panelGroup>
-                    <h:selectOneMenu id="classeBeanProfessores" required="true" value="#{classeBean.classe.disciplina}" converter="professorConverter">
+                    <h:selectOneMenu id="classeBeanProfessores" required="true" value="#{professorBean.professor.id}" >
                         <f:selectItem itemLabel="Escolha um .." itemValue="#{null}" />
                         <f:selectItems value="#{classeBean.professors}" var="professor" itemLabel="#{professor.nome}" itemValue="#{professor}" />
                     </h:selectOneMenu>
@@ -41,8 +41,8 @@
 
                 <h:outputLabel for="classeBeanHorarios" value="Professor:"/>
                 <h:panelGroup>
-                    <h:selectManyCheckbox id="classeBeanHorarios" required="true" value="#{classeBean.classe.horarios}">
-                        <f:selectItems value="#{classeBean.horarios}" var="horario" itemLabel="#{horario.diaSemana} - #{horario.horaInicial} á #{horario.horaFinal}" itemValue="#{horario}" />
+                    <h:selectManyCheckbox id="classeBeanHorarios" required="true" value="#{horarioBean.horario.idHorario}">
+                        <f:selectItems value="#{classeBean.horarios}" var="horario" itemLabel="#{horario.diaSemana} - #{horario.horaInicial} á #{horario.horaFinal}" itemValue="#{horario.idHorario}" />
                     </h:selectManyCheckbox>
                     <h:message for="classeBeanHorarios" styleClass="error"/>
                 </h:panelGroup>
