@@ -60,6 +60,10 @@ public class DisciplinaBean implements Serializable {
         return "list?faces-redirect=true";
     }
 
+    public Disciplina findById(Integer id) {
+        return this.em.find(Disciplina.class, id);
+    }
+
     public List<Disciplina> getDisciplinas() {
         return disciplinas;
     }

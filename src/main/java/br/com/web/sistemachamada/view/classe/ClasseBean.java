@@ -77,6 +77,9 @@ public class ClasseBean implements Serializable {
     }
 
     public String create(){
+        Gson gson = new Gson();
+        System.out.println("create classe bean");
+        System.out.println(gson.toJson(classe));
         em.persist(classe);
         this.conversation.end();
         return "list?faces-redirect=true";

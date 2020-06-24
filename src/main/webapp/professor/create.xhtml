@@ -5,7 +5,7 @@
                 template="/resources/template.xhtml">
 
     <f:metadata>
-        <f:event type="preRenderView" listener='#{alunoBean.retrieve}'/>
+        <f:event type="preRenderView" listener='#{professorBean.retrieve}'/>
     </f:metadata>
 
     <ui:define name="title">Sistema de chamada</ui:define>
@@ -17,33 +17,45 @@
             <h:messages globalOnly="true" styleClass="error"/>
 
             <h:panelGrid columnClasses="label,component,required" columns="3">
-                <h:outputLabel for="AlunoBeanNome" value="Nome:"/>
+                <h:outputLabel for="ProfessorBeanNome" value="Nome:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBeanNome" required="true"  value="#{alunoBean.professor.nome}"/>
-                    <h:message for="AlunoBeanNome" styleClass="error"/>
+                    <h:inputText id="ProfessorBeanNome" required="true"  value="#{professorBean.professor.nome}"/>
+                    <h:message for="ProfessorBeanNome" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
-                <h:outputLabel for="AlunoBeanEmail" value="Email:"/>
+                <h:outputLabel for="ProfessorBeanEmail" value="Email:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBeanEmail" required="true"  value="#{alunoBean.professor.email}"/>
-                    <h:message for="AlunoBeanEmail" styleClass="error"/>
+                    <h:inputText id="ProfessorBeanEmail" required="true"  value="#{professorBean.professor.email}"/>
+                    <h:message for="ProfessorBeanEmail" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
-                <h:outputLabel for="AlunoBeanSenha" value="senha:"/>
+                <h:outputLabel for="ProfessorBeanSenha" value="senha:"/>
                 <h:panelGroup>
-                <h:inputText id="AlunoBeanSenha" required="true"  value="#{alunoBean.professor.senha}"/>
-                    <h:message for="AlunoBeanSenha" styleClass="error"/>
+                <h:inputText id="ProfessorBeanSenha" required="true"  value="#{professorBean.professor.senha}"/>
+                    <h:message for="ProfessorBeanSenha" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
-                <h:outputLabel for="AlunoBeanCpf" value="Cpf:"/>
+                <h:outputLabel for="ProfessorBeanCpf" value="Cpf:"/>
                 <h:panelGroup>
-                    <h:inputText id="AlunoBeanCpf" required="true"  value="#{alunoBean.professor.cpf}"/>
-                    <h:message for="AlunoBeanCpf" styleClass="error"/>
+                    <h:inputText id="ProfessorBeanCpf" required="true"  value="#{professorBean.professor.cpf}"/>
+                    <h:message for="ProfessorBeanCpf" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="ProfessorBeanSexo" value="Sexo:"/>
+                <h:panelGroup>
+                    <h:inputText id="ProfessorBeanSexo" required="true"  value="#{professorBean.professor.sexo}"/>
+                    <h:message for="ProfessorBeanSexo" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="ProfessorBeanIdProfessor" value="Id professor:"/>
+                <h:panelGroup>
+                    <h:inputText id="ProfessorBeanIdProfessor" required="true"  value="#{professorBean.professor.idProfessor}"/>
+                    <h:message for="ProfessorBeanIdProfessor" styleClass="error"/>
                 </h:panelGroup><h:outputText value="*"/>
 
             </h:panelGrid>
 
             <div class="buttons">
-                <h:commandLink value="Salvar" action='#{alunoBean.create}' styleClass="btn btn-primary"/>
+                <h:commandLink value="Salvar" action='#{professorBean.create}' styleClass="btn btn-primary"/>
                 <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
             </div>
         </h:form>
