@@ -1,8 +1,6 @@
-package br.com.web.sistemachamada.view.horario;
+package br.com.web.sistemachamada.view.professor;
 
-import br.com.web.sistemachamada.enums.DiasDaSemana;
-import br.com.web.sistemachamada.models.Aula;
-import br.com.web.sistemachamada.models.Horario;
+import br.com.web.sistemachamada.models.Professor;
 import com.google.gson.Gson;
 
 import javax.ejb.Stateful;
@@ -17,26 +15,35 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
-
 @Named
 @Stateful
 @ConversationScoped
 @Transactional
-public class HorarioBean implements Serializable{
+
+public class ProfessorBean implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Inject
     private Conversation conversation;
     @PersistenceContext(unitName = "sistemaChamadaPU", type = PersistenceContextType.EXTENDED)
     private EntityManager em;
 
-    private List<Horario> horarios;
-    private Horario horario = new Horario();
+    private List<Professor> professors;
+    private Professor professor = new Professor();
+
+    public void setProfessors(List<Professor> professors) {
+        this.professors = professors;
+    }
 
     public void getAll() {
-        CriteriaQuery<Horario> criteria = this.em.getCriteriaBuilder()
-                .createQuery(Horario.class);
+        CriteriaQuery<Professor> criteria = this.em.getCriteriaBuilder()
+                .createQuery(Professor.class);
 
-        this.horarios = this.em.createQuery(
-                criteria.select(criteria.from(Horario.class))).getResultList();
+        this.professors = this.em.createQuery(
+                criteria.select(criteria.from(Professor.class))).getResultList();
+
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(this.professors));
     }
 
     public void retrieve(){
@@ -48,15 +55,16 @@ public class HorarioBean implements Serializable{
     }
 
     public String create(){
-        em.persist(horario);
+        em.persist(professor);
         this.conversation.end();
         return "list?faces-redirect=true";
     }
-    public List<Horario> getHorarios() {
-        return horarios;
+
+    public List<Professor> getProfessors() {
+        return professors;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public Professor getProfessor() {
+        return professor;
     }
 }

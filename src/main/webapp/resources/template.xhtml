@@ -25,35 +25,38 @@
 
                 <!-- Sidebar - Brand -->
 <!--                <div class="sidebar-brand-text mx-3">Sistema de chamada</div>-->
-                <h:link class="sidebar-brand d-flex align-items-center justify-content-center" outcome="/main.xhtml" value="Sistema de chamada"/>
+                <h:link class="sidebar-brand d-flex align-items-center justify-content-center" outcome="/faces//main.xhtml" value="Sistema de chamada"/>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0"/>
 
                 <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="disciplina/list" value="Disciplinas"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/classe/list" value="Classes"/>
                 </li>
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="aula/list" value="Aulas"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/disciplina/list" value="Disciplinas"/>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/aula/list" value="Aulas"/>
+                </li>
+                <li class="nav-item">
 
-                    <h:link class="nav-link" outcome="presenca/create" value="Presencas"/>
+                    <h:link class="nav-link" outcome="/faces/presenca/create" value="Presencas"/>
                 </li>
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="presencaprofessor/list" value="PresencasPf"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/presencaprofessor/list" value="PresencasPf"/>
                 </li>
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="aluno/list" value="Aluno"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/aluno/list" value="Aluno"/>
 
                 </li>
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="horario/list" value="Horários"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/horario/list" value="Horários"/>
                 </li>
 
-                <li class="nav-item active">
-                    <h:link class="nav-link" outcome="login/login" value="Login"/>
+                <li class="nav-item">
+                    <h:link class="nav-link" outcome="/faces/login/login" value="Login"/>
                 </li>
 
             </ul>

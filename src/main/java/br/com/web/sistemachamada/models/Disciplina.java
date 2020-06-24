@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @XmlRootElement
@@ -27,13 +28,24 @@ public class Disciplina implements Serializable {
     @Column(name = "periodo")
     public String periodo;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "disciplina")
+    public List<Classe> classes;
+
     public Disciplina(){}
 
     public Disciplina(String nome, String periodo){
         this.nome = nome;
         this.periodo = periodo;
     }
-    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -48,5 +60,13 @@ public class Disciplina implements Serializable {
 
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
+    }
+
+    public List<Classe> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<Classe> classes) {
+        this.classes = classes;
     }
 }

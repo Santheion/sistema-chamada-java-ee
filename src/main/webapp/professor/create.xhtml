@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{alunoBean.retrieve}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Cadastro de professor</ui:define>
+
+    <ui:define name="main">
+        <h:form id="create" styleClass="create-form">
+            <h:messages globalOnly="true" styleClass="error"/>
+
+            <h:panelGrid columnClasses="label,component,required" columns="3">
+                <h:outputLabel for="AlunoBeanNome" value="Nome:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBeanNome" required="true"  value="#{alunoBean.professor.nome}"/>
+                    <h:message for="AlunoBeanNome" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBeanEmail" value="Email:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBeanEmail" required="true"  value="#{alunoBean.professor.email}"/>
+                    <h:message for="AlunoBeanEmail" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+                <h:outputLabel for="AlunoBeanSenha" value="senha:"/>
+                <h:panelGroup>
+                <h:inputText id="AlunoBeanSenha" required="true"  value="#{alunoBean.professor.senha}"/>
+                    <h:message for="AlunoBeanSenha" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+                <h:outputLabel for="AlunoBeanCpf" value="Cpf:"/>
+                <h:panelGroup>
+                    <h:inputText id="AlunoBeanCpf" required="true"  value="#{alunoBean.professor.cpf}"/>
+                    <h:message for="AlunoBeanCpf" styleClass="error"/>
+                </h:panelGroup><h:outputText value="*"/>
+
+            </h:panelGrid>
+
+            <div class="buttons">
+                <h:commandLink value="Salvar" action='#{alunoBean.create}' styleClass="btn btn-primary"/>
+                <h:link value="Cancelar" outcome="list" styleClass="btn btn-primary"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

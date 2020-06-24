@@ -1,12 +1,14 @@
 package br.com.web.sistemachamada.models;
 
+import br.com.web.sistemachamada.enums.DiasDaSemana;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @XmlRootElement
@@ -16,8 +18,9 @@ import java.util.Date;
 public class Horario implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
+    @Enumerated(EnumType.STRING)
     @Column(name = "idHorario", updatable = false, nullable = false)
-    public Integer id;
+    public DiasDaSemana id;
 
     @NotNull
     @Column( name = "dia_semana")
@@ -25,15 +28,18 @@ public class Horario implements Serializable {
 
     @NotNull
     @Column(name ="hora_inicial")
-    public long horaInicial;
+    public String horaInicial;
 
     @NotNull
     @Column(name ="hora_final")
-    public long horaFinal;
+    public String horaFinal;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    public List<Classe> classes;
 
     public Horario(){}
 
-    public Horario(String diaSemana, long horaInicial, long horaFinal){
+    public Horario(String diaSemana, String horaInicial, String horaFinal){
         this.diaSemana = diaSemana;
         this.horaInicial = horaInicial;
         this.horaFinal = horaFinal;
@@ -47,19 +53,27 @@ public class Horario implements Serializable {
         this.diaSemana = diaSemana;
     }
 
-    public long getHoraInicial() {
+    public String getHoraInicial() {
         return horaInicial;
     }
 
-    public void setHoraInicial(long horaInicial) {
+    public void setHoraInicial(String horaInicial) {
         this.horaInicial = horaInicial;
     }
 
-    public long getHoraFinal() {
+    public String getHoraFinal() {
         return horaFinal;
     }
 
-    public void setHoraFinal(long horaFinal) {
+    public void setHoraFinal(String horaFinal) {
         this.horaFinal = horaFinal;
+    }
+
+    public List<Classe> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<Classe> classes) {
+        this.classes = classes;
     }
 }

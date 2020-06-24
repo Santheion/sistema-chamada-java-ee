@@ -2,6 +2,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
                 template="/resources/template.xhtml">
 
     <f:metadata>
@@ -16,22 +17,30 @@
         <h:form id="create" styleClass="create-form">
             <h:messages globalOnly="true" styleClass="error"/>
 
-            <h:panelGrid columnClasses="label,component,required" columns="3">
+            <h:panelGrid  columnClasses="label,component,required" columns="3">
                 <h:outputLabel for="horarioBeanDia" value="Dia:"/>
                 <h:panelGroup>
-                    <h:inputText id="horarioBeanDia" required="true" value="#{horarioBean.horario.diaSemana}"/>
+                    <h:selectOneMenu id="horarioBeanDia" value="#{horarioBean.horario.diaSemana}">
+                        <f:selectItem itemLabel="Segunda-feira" itemValue="SEGUNDA" />
+                        <f:selectItem itemLabel="Terça-feira" itemValue="TERCA" />
+                        <f:selectItem itemLabel="Quarta-feira" itemValue="QUARTA" />
+                        <f:selectItem itemLabel="Quinta-feira" itemValue="QUINTA" />
+                        <f:selectItem itemLabel="Sexta-feira" itemValue="SEXTA" />
+                        <f:selectItem itemLabel="Sábado" itemValue="SABADO" />
+                        <f:selectItem itemLabel="Domingo" itemValue="DOMINGO" />
+                    </h:selectOneMenu>
                     <h:message for="horarioBeanDia" styleClass="error"/>
                 </h:panelGroup>
                 <h:outputText value="*"/>
                 <h:outputLabel for="horarioBeanHoraInicial" value="Horário de Ínicio:"/>
                 <h:panelGroup>
-                    <h:inputText id="horarioBeanHoraInicial" required="true" value="#{horarioBean.horario.horaInicial}"/>
+                    <p:inputMask placeholder="12:00" mask="99:99" id="horarioBeanHoraInicial" value="#{horarioBean.horario.horaInicial}" required="true"/>
                     <h:message for="horarioBeanHoraInicial" styleClass="error"/>
                 </h:panelGroup>
                 <h:outputText value="*"/>
                 <h:outputLabel for="horarioBeanHoraFinal" value="Horário Final:"/>
                 <h:panelGroup>
-                    <h:inputText id="horarioBeanHoraFinal" required="true" value="#{horarioBean.horario.horaFinal}"/>
+                    <p:inputMask placeholder="12:50" mask="99:99" id="horarioBeanHoraFinal" value="#{horarioBean.horario.horaFinal}" required="true"/>
                     <h:message for="horarioBeanHoraFinal" styleClass="error"/>
                 </h:panelGroup>
                 <h:outputText value="*"/>

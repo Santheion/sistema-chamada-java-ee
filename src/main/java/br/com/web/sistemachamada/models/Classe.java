@@ -6,36 +6,42 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Classe  implements Serializable {
+    public Classe(){
+
+    }
+
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     @Column(name = "idClass", updatable = false, nullable = false)
     public Integer idClasse;
 
     @NotNull
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="codigo")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "idProfessor")
     public Professor professor;
 
     @NotNull
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="idDisciplina")
     public Disciplina disciplina;
 
     @NotNull
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinColumn(name="idHorario")
-    public Horario horario;
+    public List<Horario> horarios;
 
-    public Classe(Integer idClasse, Professor professor, Disciplina disciplina, Horario horario) {
+
+    public Classe(Integer idClasse, Professor professor, Disciplina disciplina, List<Horario> horarios) {
         this.idClasse = idClasse;
         this.professor = professor;
         this.disciplina = disciplina;
-        this.horario = horario;
+        this.horarios = horarios;
     }
 
     public Integer getIdClasse() {
@@ -62,11 +68,11 @@ public class Classe  implements Serializable {
         this.disciplina = disciplina;
     }
 
-    public Horario getHorario() {
-        return horario;
+    public List<Horario> getHorarios() {
+        return horarios;
     }
 
-    public void setHorario(Horario horario) {
-        this.horario = horario;
+    public void setHorarios(List<Horario> horarios) {
+        this.horarios = horarios;
     }
 }
