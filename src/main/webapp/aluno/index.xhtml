@@ -1,0 +1,18 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/aluno-template.xhtml">
+    <f:metadata>
+        <f:event type="preRenderView" listener='#{alunoBean.getAll()}'/>
+    </f:metadata>
+
+    <ui:define name="title">Sistema de chamada</ui:define>
+
+    <ui:define name="message">Tela Inicial do Sistema de chamada</ui:define>
+
+    <ui:define name="main">
+        <p>Olá, </p>
+        <p>seja bem vindo!</p>
+    </ui:define>
+</ui:composition>

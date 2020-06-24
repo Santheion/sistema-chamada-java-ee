@@ -81,10 +81,10 @@ public class AlunoBean implements Serializable{
         System.out.println(gson.toJson(userByEmail));
 
         if(userByEmail != null){
-            return "/faces/aluno/list?faces-redirect=true";
+            return "/aluno/index.html?faces-redirect=true";
         }
         else{
-            return "/faces/aluno/login?faces-redirect=true";
+            return "/aluno/login?faces-redirect=true";
         }
     }
 

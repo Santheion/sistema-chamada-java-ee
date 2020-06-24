@@ -71,9 +71,9 @@ public class ProfessorBean implements Serializable {
         Gson gson = new Gson();
         System.out.println(gson.toJson(userByEmail));
         if (userByEmail != null) {
-            return "/faces/professor/list?faces-redirect=true";
+            return "/professor/list?faces-redirect=true";
         } else {
-            return "/faces/professor/login?faces-redirect=true";
+            return "/professor/login?faces-redirect=true";
         }
 
     }
