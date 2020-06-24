@@ -9,12 +9,10 @@
                 template="/resources/template.xhtml">
 
     <f:metadata>
-        <f:event type="preRenderView" listener='#{alunoBean.getAll()}'/>
+        <f:event type="preRenderView" listener='#{professorBean.getAll()}'/>
     </f:metadata>
 
-    <ui:define name="title">Sistema de chamada</ui:define>
-
-    <ui:define name="message">Listagem de professors</ui:define>
+    <ui:define name="title">Listagem de professores</ui:define>
 
     <ui:define name="main">
         <div class="container-fluid">
@@ -29,31 +27,31 @@
                     <div class="table-responsive">
 
                         <h:dataTable
-                                value="#{alunoBean.getProfessors()}"
-                                var="professors"
+                                value="#{professorBean.getProfessors()}"
+                                var="professor"
                                 class="table table-bordered" id="dataTable" width="100%" cellspacing="0"
                         >
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Nome" />
                                 </f:facet>
-                                <h:outputText value="#{professors.nome}" />
+                                <h:outputText value="#{professor.nome}" />
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Email" />
                                 </f:facet>
-                                <h:outputText value="#{professors.email}" />
+                                <h:outputText value="#{professor.email}" />
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">
                                     <h:outputText value="Cpf" />
                                 </f:facet>
-                                <h:outputText value="#{professors.cpf}" />
+                                <h:outputText value="#{professor.cpf}" />
                             </h:column>
-
+                        </h:dataTable>
                     </div>
                 </div>
             </div>

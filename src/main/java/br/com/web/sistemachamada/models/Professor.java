@@ -16,7 +16,7 @@ public class Professor extends Usuario{
     @Column(name = "idProfessor", updatable = false, nullable = false)
     public String idProfessor;
 
-    public Professor(String nome, String email, String senha, Integer cpf, String sexo, String idProfessor) {
+    public Professor(String nome, String email, String senha, String cpf, String sexo, String idProfessor) {
         super(nome, email, senha, cpf, sexo);
         this.idProfessor = idProfessor;
     }

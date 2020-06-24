@@ -1,10 +1,11 @@
 package br.com.web.sistemachamada.view.horario;
 
-import br.com.web.sistemachamada.enums.DiasDaSemana;
-import br.com.web.sistemachamada.models.Aula;
+import br.com.web.sistemachamada.models.Disciplina;
 import br.com.web.sistemachamada.models.Horario;
 import com.google.gson.Gson;
 
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -23,13 +24,21 @@ import java.util.List;
 @ConversationScoped
 @Transactional
 public class HorarioBean implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     @Inject
     private Conversation conversation;
+    @Resource
+    private SessionContext sessionContext;
     @PersistenceContext(unitName = "sistemaChamadaPU", type = PersistenceContextType.EXTENDED)
     private EntityManager em;
 
     private List<Horario> horarios;
     private Horario horario = new Horario();
+
+    public void setHorarios(List<Horario> horarios) {
+        this.horarios = horarios;
+    }
 
     public void getAll() {
         CriteriaQuery<Horario> criteria = this.em.getCriteriaBuilder()
@@ -37,6 +46,9 @@ public class HorarioBean implements Serializable{
 
         this.horarios = this.em.createQuery(
                 criteria.select(criteria.from(Horario.class))).getResultList();
+
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(this.horarios));
     }
 
     public void retrieve(){
@@ -52,6 +64,11 @@ public class HorarioBean implements Serializable{
         this.conversation.end();
         return "list?faces-redirect=true";
     }
+
+    public Horario findById(Integer id) {
+        return this.em.find(Horario.class, id);
+    }
+
     public List<Horario> getHorarios() {
         return horarios;
     }

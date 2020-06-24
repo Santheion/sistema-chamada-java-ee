@@ -1,11 +1,9 @@
 package br.com.web.sistemachamada.models;
 
-import br.com.web.sistemachamada.enums.DiasDaSemana;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.List;
@@ -18,9 +16,8 @@ import java.util.List;
 public class Horario implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
-    @Enumerated(EnumType.STRING)
     @Column(name = "idHorario", updatable = false, nullable = false)
-    public DiasDaSemana id;
+    public int idHorario;
 
     @NotNull
     @Column( name = "dia_semana")
@@ -43,6 +40,14 @@ public class Horario implements Serializable {
         this.diaSemana = diaSemana;
         this.horaInicial = horaInicial;
         this.horaFinal = horaFinal;
+    }
+
+    public int getIdHorario() {
+        return idHorario;
+    }
+
+    public void setIdHorario(int idHorario) {
+        this.idHorario = idHorario;
     }
 
     public String getDiaSemana() {

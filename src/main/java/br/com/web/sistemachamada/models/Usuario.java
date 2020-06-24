@@ -1,8 +1,6 @@
 package br.com.web.sistemachamada.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -29,12 +27,12 @@ public class Usuario implements Serializable{
     //@Min(6)
     public String senha;
     @NotNull
-    public Integer cpf;
+    public String cpf;
     @NotNull
     //@Max(1)
     public String sexo;
 
-    public Usuario(String nome, String email, String senha, Integer cpf, String sexo) {
+    public Usuario(String nome, String email, String senha, String cpf, String sexo) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -44,6 +42,10 @@ public class Usuario implements Serializable{
 
     public Usuario() {
 
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getNome() {
@@ -70,11 +72,11 @@ public class Usuario implements Serializable{
         this.senha = senha;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

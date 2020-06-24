@@ -14,7 +14,7 @@ public class Aluno extends Usuario {
     @Column(name = "matricula", updatable = false, nullable = false)
     public String matricula;
 
-    public Aluno(String nome, String email, String senha, Integer cpf, String sexo, String matricula) {
+    public Aluno(String nome, String email, String senha, String cpf, String sexo, String matricula) {
         super(nome, email, senha, cpf, sexo);
         this.matricula = matricula;
     }
@@ -53,12 +53,12 @@ public class Aluno extends Usuario {
     }
 
     @Override
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     @Override
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
