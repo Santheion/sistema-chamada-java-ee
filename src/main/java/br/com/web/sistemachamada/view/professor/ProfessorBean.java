@@ -1,5 +1,6 @@
 package br.com.web.sistemachamada.view.professor;
 
+import br.com.web.sistemachamada.models.Aluno;
 import br.com.web.sistemachamada.models.Professor;
 import com.google.gson.Gson;
 
@@ -30,6 +31,7 @@ public class ProfessorBean implements Serializable {
 
     private List<Professor> professors;
     private Professor professor = new Professor();
+    private Professor canLogIn;
 
     public void setProfessors(List<Professor> professors) {
         this.professors = professors;
@@ -58,6 +60,25 @@ public class ProfessorBean implements Serializable {
         em.persist(professor);
         this.conversation.end();
         return "list?faces-redirect=true";
+    }
+
+    public Professor findUserByEmail(String email){
+        canLogIn = em.createQuery(
+                "SELECT u from Professor u WHERE u.email = :email", Professor.class).
+                setParameter("email", email).getSingleResult();
+        return canLogIn;
+    }
+
+    public String loginProfessor(){
+        Professor userByEmail = findUserByEmail(this.professor.email);
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(userByEmail));
+        if(userByEmail != null){
+            return "/faces/aluno/list?faces-redirect=true";
+        }
+        else{
+            return "/faces/login/aluno/login?faces-redirect=true";
+        }
     }
 
     public List<Professor> getProfessors() {

@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <ui:define name="title" >Sistema de chamada</ui:define>
+
+    <ui:define name="message">Login</ui:define>
+    <div styleClass="create-form">
+        <ui:define name="main">
+            <h:form id="create" styleClass="create-form-login">
+                <h:messages globalOnly="true" styleClass="error"/>
+
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+                    <h:outputLabel for="AlunoBeanEmail" value="Email:"/>
+                    <h:panelGroup>
+                        <h:inputText id="AlunoBeanEmail" required="true"  value="#{alunoBean.aluno.email}"/>
+                        <h:message for="AlunoBeanEmail" styleClass="error"/>
+                    </h:panelGroup><br/>
+                    <h:outputLabel for="AlunoBeanSenha" value="Senha:"/>
+                    <h:panelGroup>
+                        <h:inputSecret id="AlunoBeanSenha" required="true"  value="#{alunoBean.aluno.senha}"/>
+                        <h:message for="AlunoBeanSenha" styleClass="error"/>
+                    </h:panelGroup>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                    <h:commandLink value="Login" action='#{alunoBean.loginAluno}' styleClass="btn-login btn btn-primary"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </div>
+</ui:composition>

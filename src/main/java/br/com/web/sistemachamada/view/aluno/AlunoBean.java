@@ -29,6 +29,7 @@ public class AlunoBean implements Serializable{
 
     private List<Aluno> alunos;
     private Aluno aluno = new Aluno();
+    private Aluno canLogIn;
 
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
@@ -66,4 +67,25 @@ public class AlunoBean implements Serializable{
     public Aluno getAluno() {
         return aluno;
     }
+
+    public Aluno findUserByEmail(String email){
+        canLogIn = em.createQuery(
+                "SELECT u from Aluno u WHERE u.email = :email", Aluno.class).
+                setParameter("email", email).getSingleResult();
+        return canLogIn;
+    }
+
+    public String loginAluno(){
+        Aluno userByEmail = findUserByEmail(this.aluno.email);
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(userByEmail));
+
+        if(userByEmail != null){
+            return "/faces/aluno/list?faces-redirect=true";
+        }
+        else{
+            return "/faces/login/aluno/login?faces-redirect=true";
+        }
+    }
+
 }

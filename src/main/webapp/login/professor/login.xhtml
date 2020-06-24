@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/resources/template.xhtml">
+
+    <ui:define name="title" >Sistema de chamada</ui:define>
+
+    <ui:define name="message">Login</ui:define>
+    <div styleClass="create-form">
+        <ui:define name="main">
+            <h:form id="create" styleClass="create-form-login">
+                <h:messages globalOnly="true" styleClass="error"/>
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+                    <h:outputLabel for="ProfessorBeanEmail" value="Email:"/>
+                    <h:panelGroup>
+                        <h:inputText id="ProfessorBeanEmail" required="true"  value="#{professorBean.professor.email}"/>
+                        <h:message for="ProfessorBeanEmail" styleClass="error"/>
+                    </h:panelGroup><br/>
+                        <h:outputLabel for="ProfessorBeanSenha" value="Senha:"/>
+                    <h:panelGroup>
+                        <h:inputSecret id="ProfessorBeanSenha" required="true"  value="#{professorBean.professor.senha}" />
+                        <h:message for="ProfessorBeanSenha" styleClass="error"/>
+                    </h:panelGroup>
+                </h:panelGrid>
+
+                <div class="buttons">
+                    <h:commandLink value="Login" action='#{professorBean.loginProfessor}' styleClass="btn-login btn btn-primary"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </div>
+</ui:composition>
