@@ -41,9 +41,6 @@ public class AlunoBean implements Serializable{
 
         this.alunos = this.em.createQuery(
                 criteria.select(criteria.from(Aluno.class))).getResultList();
-
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(this.alunos));
     }
 
     public void retrieve(){
@@ -57,7 +54,7 @@ public class AlunoBean implements Serializable{
     public String create(){
         em.persist(aluno);
         this.conversation.end();
-        return "list?faces-redirect=true";
+        return "/aluno/login?faces-redirect=true";
     }
 
     public List<Aluno> getAlunos() {
@@ -77,8 +74,6 @@ public class AlunoBean implements Serializable{
 
     public String loginAluno(){
         Aluno userByEmail = findUserByEmail(this.aluno.email);
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(userByEmail));
 
         if(userByEmail != null){
             return "/aluno/index.html?faces-redirect=true";

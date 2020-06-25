@@ -42,9 +42,6 @@ public class PresencaBean implements Serializable {
 
         this.presencas = this.em.createQuery(
                 criteria.select(criteria.from(Presenca.class))).getResultList();
-
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(this.presencas));
     }
 
     public void retrieve(){

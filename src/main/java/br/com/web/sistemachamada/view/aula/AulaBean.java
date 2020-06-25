@@ -39,9 +39,6 @@ public class AulaBean implements Serializable {
 
         this.aulas = this.em.createQuery(
                 criteria.select(criteria.from(Aula.class))).getResultList();
-
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(this.aulas));
     }
 
     public void retrieve(){

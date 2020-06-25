@@ -39,6 +39,7 @@ public class ClasseBean implements Serializable {
     private List<Horario> horarios = new ArrayList<>();
 
     public void getAllRelationShips(){
+
         CriteriaQuery<Disciplina> criteriaDisciplinas = this.em.getCriteriaBuilder()
                 .createQuery(Disciplina.class);
         this.disciplinas = this.em.createQuery(
@@ -77,9 +78,6 @@ public class ClasseBean implements Serializable {
     }
 
     public String create(){
-        Gson gson = new Gson();
-        System.out.println("create classe bean");
-        System.out.println(gson.toJson(classe));
         em.persist(classe);
         this.conversation.end();
         return "list?faces-redirect=true";

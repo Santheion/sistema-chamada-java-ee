@@ -41,9 +41,6 @@ public class DisciplinaBean implements Serializable {
 
         this.disciplinas = this.em.createQuery(
                 criteria.select(criteria.from(Disciplina.class))).getResultList();
-
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(this.disciplinas));
     }
 
     public void retrieve(){

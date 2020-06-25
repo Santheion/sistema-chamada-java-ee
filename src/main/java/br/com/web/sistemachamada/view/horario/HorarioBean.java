@@ -46,9 +46,6 @@ public class HorarioBean implements Serializable{
 
         this.horarios = this.em.createQuery(
                 criteria.select(criteria.from(Horario.class))).getResultList();
-
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(this.horarios));
     }
 
     public void retrieve(){

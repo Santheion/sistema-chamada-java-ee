@@ -56,7 +56,7 @@ public class ProfessorBean implements Serializable {
     public String create(){
         em.persist(professor);
         this.conversation.end();
-        return "list?faces-redirect=true";
+        return "/professor/login?faces-redirect=true";
     }
 
     public Professor findUserByEmail(String email){
@@ -68,8 +68,6 @@ public class ProfessorBean implements Serializable {
 
     public String loginProfessor() {
         Professor userByEmail = findUserByEmail(this.professor.email);
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(userByEmail));
         if (userByEmail != null) {
             return "/professor/list?faces-redirect=true";
         } else {

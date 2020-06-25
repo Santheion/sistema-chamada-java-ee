@@ -22,17 +22,17 @@ public class Classe  implements Serializable {
     public Integer idClasse;
 
     @NotNull
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "idProfessor")
     public Professor professor;
 
     @NotNull
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="idDisciplina")
     public Disciplina disciplina;
 
     @NotNull
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinColumn(name="idHorario")
     public List<Horario> horarios;
 

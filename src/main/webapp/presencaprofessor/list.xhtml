@@ -43,6 +43,12 @@
                                 </f:facet>
                                 <h:outputText value="#{alunos.matricula}" />
                             </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Presente" />
+                                </f:facet>
+                                <h:selectBooleanCheckbox value="#{false}" />
+                            </h:column>
 
                         </h:dataTable>
 
